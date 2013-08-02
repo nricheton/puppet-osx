@@ -17,6 +17,10 @@ Puppet::Type.newtype(:osx_login_item) do
     desc "The name of the login item."
   end
 
+  newparam :user do
+      desc "The name of the target user."
+  end
+    
   newparam :path do
     desc "The path to the application to be run at login."
   end

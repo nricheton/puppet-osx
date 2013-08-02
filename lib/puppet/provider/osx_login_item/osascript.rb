@@ -54,6 +54,7 @@ private
   end
 
   def run_script(script)
-    %x{/usr/bin/osascript -e '#{script.gsub(/\n/, ' ').squeeze(' ').strip}'}
+   	sudo =  resource[:user] ? "sudo -u '#{resource[:user]}' " : ""
+    %x{#{sudo}/usr/bin/osascript -e '#{script.gsub(/\n/, ' ').squeeze(' ').strip}'}
   end
 end
